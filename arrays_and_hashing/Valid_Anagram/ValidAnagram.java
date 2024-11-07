@@ -12,8 +12,7 @@ public class ValidAnagram {
 
     Map<Character, Integer> charMap = new HashMap<>();
     for (char i : s.toCharArray()) {
-      charMap.putIfAbsent(i, 1);
-      charMap.put(i, charMap.get(i) + 1);
+      charMap.put(i, charMap.getOrDefault(i, 0) + 1);
     }
 
     for (char i : t.toCharArray()) {
