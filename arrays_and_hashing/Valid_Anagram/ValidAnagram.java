@@ -37,13 +37,15 @@ public class ValidAnagram {
       { "listen", "silent" },
       { "aacc", "ccac" },
     };
-
+    boolean[] expected = {true, false, true, false};
     for (String[] testCase : testCases) {
+      int i = 0;
+      
       String s = testCase[0];
       String t = testCase[1];
-      boolean expected = s.length() == t.length(); // A necessary condition for anagrams
-
+      boolean expectedOutcome = expected[i];
       boolean result = isAnagram(s, t);
+      
       System.out.println(
         "s: " +
         s +
@@ -55,9 +57,12 @@ public class ValidAnagram {
         result
       );
 
-      if (result != expected) {
+      if (expectedOutcome != result) {
         System.out.println("Test failed!");
+        i++;
+        continue;
       }
+      i++;
     }
   }
 }
