@@ -5,7 +5,7 @@ import java.util.Map;
 
 public class ValidAnagram {
 
-  public boolean isAnagram(String s, String t) {
+  public static boolean isAnagram(String s, String t) {
     if (s.length() != t.length()) {
       return false;
     }
@@ -27,5 +27,37 @@ public class ValidAnagram {
     }
 
     return true;
+  }
+
+  public static void main(String[] args) {
+    // Test cases
+    String[][] testCases = {
+      { "anagram", "nagaram" },
+      { "rat", "car" },
+      { "listen", "silent" },
+      { "aacc", "ccac" },
+    };
+
+    for (String[] testCase : testCases) {
+      String s = testCase[0];
+      String t = testCase[1];
+      boolean expected = s.length() == t.length(); // A necessary condition for anagrams
+
+      boolean result = isAnagram(s, t);
+      System.out.println(
+        "s: " +
+        s +
+        ", t: " +
+        t +
+        ", Expected: " +
+        expected +
+        ", Result: " +
+        result
+      );
+
+      if (result != expected) {
+        System.out.println("Test failed!");
+      }
+    }
   }
 }
